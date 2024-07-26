@@ -1,0 +1,46 @@
+/* OrganizerView.css */
+.card-body {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .child-card {
+    border: 3px dotted #9cb9b7;
+    padding: 14px;
+    margin: 5px 0;
+    border-radius: 10px;
+  }
+  
+.child-card.selected {
+    background-color: #d3ffd3; /* Highlight selected cards */
+}
+
+.toggle-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px; /* Adjust as needed */
+}
+
+.status-tag {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.status-tag.approved {
+    background-color:#c1ebae;
+}
+
+.status-tag.pending {
+    background-color: #9f8e9448;
+}
+
+.status-tag.rejected {
+    background-color: #ab7e8e;
+}
+  

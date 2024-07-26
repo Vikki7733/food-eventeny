@@ -1,0 +1,103 @@
+.filter-container {
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Card-like shadow */
+    transition: 0.3s;
+    width: 80%; /* Adjust based on your layout */
+    margin: 20px auto; /* Center the card */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filter-row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between; /* Space elements evenly */
+}
+
+.filter-row .filter-group {
+    flex: 1; /* Make each filter group take equal space */
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start; /* Align buttons to the left */
+}
+
+#filterButton, #clearButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#filterButton {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+#filterButton:hover {
+    background-color: #45a049;
+}
+
+#clearButton {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+#clearButton:hover {
+    background-color: #d32f2f; /* Darker red */
+}
+
+.toggle-button {
+    background-color: #008CBA; /* Blue */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-button::before {
+    content: '▸';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    line-height: 1em;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+.toggle-button.open::before {
+    content: '▾';
+}
+
+.hidden {
+    display: none;
+}
+
+input[list] {
+    padding: 10px;
+    border: 2px solid #007BFF; /* Blue border */
+    border-radius: 5px;
+    font-size: 16px;
+    width: calc(100% - 24px); /* Adjust width considering padding and border */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[list]:focus {
+    border-color: #0056b3; /* Darker blue when focused */
+    outline: none; /* Remove default focus outline */
+}

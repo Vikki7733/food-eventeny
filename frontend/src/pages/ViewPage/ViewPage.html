@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Applications</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/pages/ViewPage/ViewPage.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+</head>
+<body>
+
+        <!-- Banner Element -->
+        <div id="banner" class="banner">
+            <span>Go to Organizer Page<span style="color: blue; padding: 10px;">Click here</span></span>
+        </div>
+        <div class="toggle-button-container">
+        <button id="toggleFiltersButton" class="filter-toggle-button">&#9654; Show Filters</button>
+        </div>
+
+        <div id="filters" class="filter-container hidden"></div>
+        <button id="createButton"class="icon-button submit-button">+</button>
+        <div id="applications">
+        </div>
+
+    <script type="module" src="/pages/ViewPage/ViewPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+/* Specific styles for the Organizer Application View Page */
+#applications {
+    justify-content: space-between;
+    gap: 10px; /* Minimal space between cards */
+    margin-top: 40px;
+}
+
+#applications .card {
+
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    background-color: #d3efef;
+    padding: 15px;
+    margin: 5px; /* Space between rows */
+}
+
+#applications .card:hover {
+    transform: scale(1.02);
+}
+
+#applications .card-title {
+    margin: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#applications .card-text {
+    margin: 10px;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.centered-container {
+    align-items: center;
+    min-height: 80vh; /* Adjust based on your layout needs */
+    margin-top: 20px; /* Space from top if needed */
+}
+

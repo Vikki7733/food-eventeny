@@ -1,0 +1,168 @@
+/* Import Bootstrap CSS */
+@import url('/bootstrap-5.3.3-dist/css/bootstrap.min.css');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dfeae9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* Utility Classes */
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.banner {
+    background-color: #b24e4e; 
+    color: #ddd7b4;    
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.banner:hover {
+    background-color: #03b8d4;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.arrow {
+    font-size: 1.2em;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.card {
+    flex: 0 1 calc(50% - 10px);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    background-color: #d3efef;
+    padding: 15px;
+    margin: 5px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-title {
+    margin: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    margin: 10px;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    margin-top: 20px;
+}
+
+.icon-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.icon-button:hover {
+    background-color: #45a049;
+}
+
+.back-button {
+    position: absolute;
+    border-radius: 20px;
+    top: 20px;
+    left: 20px;
+    background-color: #555e79;
+}
+
+.back-button:hover {
+    background-color: #6b987d;
+}
+
+.submit-button {
+    background-color: #008CBA;
+}
+
+.submit-button:hover {
+    background-color: #007bb5;
+}
+
+.items-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.items-container th,
+.items-container td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.items-container th {
+    background-color: #f2f2f2;
+}

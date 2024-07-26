@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Applications</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/pages/FilterPage/FilterPage.css">
+</head>
+<body>
+    <div class="filter-container">
+        <!-- First Row: Application IDs and Applicant Name -->
+        <div class="filter-row">
+            <div class="filter-group">
+                <label for="filterApplicationIds">Application IDs:</label>
+                <input type="text" id="filterApplicationIds" list="filterApplicationIdsDatalist" multiple>
+                <datalist id="filterApplicationIdsDatalist"></datalist>
+            </div>
+            <div class="filter-group">
+                <label for="filterApplicantName">Applicant Name:</label>
+                <input type="text" id="filterApplicantName" list="filterApplicantNameDatalist">
+                <datalist id="filterApplicantNameDatalist"></datalist>
+            </div>
+        </div>
+        
+        <!-- Second Row: Cuisine Type, Status, Venue Location -->
+        <div class="filter-row">
+            <div class="filter-group">
+                <label for="filterCuisineType">Cuisine Type:</label>
+                <input type="text" id="filterCuisineType" list="filterCuisineTypeDatalist">
+                <datalist id="filterCuisineTypeDatalist"></datalist>
+            </div>
+            <div class="filter-group">
+                <label for="filterStatus">Status:</label>
+                <input type="text" id="filterStatus" list="filterStatusDatalist" multiple>
+                <datalist id="filterStatusDatalist"></datalist>
+            </div>
+            <div class="filter-group">
+                <label for="filterLocation">Location:</label>
+                <input type="text" id="filterLocation" list="filterLocationDatalist">
+                <datalist id="filterLocationDatalist"></datalist>
+            </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="filter-buttons">
+            <button id="filterButton">Apply Filters</button>
+            <button id="clearButton">Clear Filters</button>
+        </div>
+    </div>
+    
+    <script type="module" src="/pages/FilterPage/FilterPage.js" defer></script>
+</body>
+</html>

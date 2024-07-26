@@ -1,0 +1,75 @@
+/* ViewPage.css */
+.filter-container {
+    margin: 20px;
+}
+
+.filter-toggle-button {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+}
+
+.filter-toggle-button.open {
+    background-color: #e0e0e0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* FilterPage.css */
+.filter-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.toggle-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px; /* Adjust as needed */
+}
+
+.filter-options label {
+    grid-column: span 1;
+}
+
+.filter-options input {
+    grid-column: span 2;
+}
+
+#filterButton, #clearButton {
+    grid-column: span 1;
+    margin-top: 20px;
+}
+
+#applications {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px; /* Space from top if needed */
+    margin: 0 auto; /* Center align the grid */
+    max-width: 1200px; /* Maximum width for the grid */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #555;
+}
+
+
+button {
+    font-size: 0.875rem;
+}
+
+
+
