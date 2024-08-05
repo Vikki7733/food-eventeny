@@ -1,5 +1,5 @@
 import { fetchApplicationDetails } from '../pages/ViewPage/ViewPage.js';
-import { updateApplicationStatus } from '../pages/OrganizerWorkflowPage/OrganizerWorkflowPage.js'; 
+import { updateApplicationStatus } from '../pages/OrganizerWorkflowPage/OrganizerWorkflowPage.js';
 
 function renderApplicationDetails(application) {
     const detailsContainer = document.getElementById('application-details');
@@ -51,22 +51,20 @@ function renderApplicationDetails(application) {
     `;
 }
 
-
-
 function setupEventListeners(applicationId) {
     const buttons = ['approveButton', 'rejectButton'];
-    
+
     buttons.forEach(buttonId => {
         const buttonElement = document.getElementById(buttonId)
         if (buttonElement) {
             buttonElement.addEventListener('click', async () => {
-            const action = buttonId.replace('Button', '').toLowerCase();
-            const allocatedLocation = document.getElementById('allocatedLocation').value;
-            const organizerComments = document.getElementById('comments').value;
-            const organizerData = { organizerComments, allocatedLocation };
-            
-            try {
-            await updateApplicationStatus(applicationId, action, organizerData)
+                const action = buttonId.replace('Button', '').toLowerCase();
+                const allocatedLocation = document.getElementById('allocatedLocation').value;
+                const organizerComments = document.getElementById('comments').value;
+                const organizerData = { organizerComments, allocatedLocation };
+
+                try {
+                    await updateApplicationStatus(applicationId, action, organizerData)
                     alert(`Application ${action}d successfully`);
                     navigateTo('/api/organizer_view');
                 } catch (error) {
@@ -74,8 +72,8 @@ function setupEventListeners(applicationId) {
                     alert(`Failed to ${action} application. Please try again.`);
                 }
             });
-                
-            
+
+
         } else {
             console.warn(`Button with ID ${buttonId} not found.`);
         }
@@ -89,8 +87,6 @@ function setupEventListeners(applicationId) {
 function navigateTo(url) {
     window.location.href = url;
 }
-
-
 
 export function organizerWorkflowMangeComponent() {
     const urlParams = new URLSearchParams(window.location.search);

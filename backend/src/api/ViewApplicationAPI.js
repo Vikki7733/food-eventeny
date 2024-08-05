@@ -8,7 +8,6 @@ router.get('/list', (req, res) => {
       console.error('Error fetching applications:', err);
       return res.status(500).send('Error fetching applications');
     }
-    console.log('Viewresults:', results);
 
     res.status(200).json(results);
   });

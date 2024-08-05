@@ -13,13 +13,6 @@ const organizerApplicationViewAPI = require('./src/api/OrganizerApplicationViewA
 
 const app = express();
 const port = process.env.PORT || 3004;
-const fs = require('fs');
-
-const filePath = path.join(__dirname, '../frontend/src/pages/EditPage/EditPage.html');
-
-fs.access(filePath, fs.constants.F_OK, (err) => {
-  console.log(`${filePath} ${err ? 'does not exist' : 'exists'}`);
-});
 
 app.use(bodyParser.json({ limit: '10mb' })); 
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
@@ -55,48 +48,32 @@ app.use('/api/status_update', organizerApprovalApplicationAPI);
 app.use('/api/organizer_application', organizerApplicationViewAPI);
 app.use('/api/get_suggestions', filterApplicationAPI);
 
-// Serve index.html for all other routes
 app.get('/api/applicant_create', (req, res) => {
-  const filePath = path.join(__dirname, '../frontend/src/pages/CreatePage/CreatePage.html');
-  console.log('Serving file:', filePath);
-  res.sendFile(filePath);
+  res.sendFile(path.join(__dirname, '../frontend/src/pages/CreatePage/CreatePage.html'));
 });
 
-// Serve index.html for all other routes
 app.get('/api/applicant_view', (req, res) => {
-  const filePath = path.join(__dirname, '../frontend/src/pages/ViewPage/ViewPage.html');
-  console.log('Serving file Viewpage:', filePath);
-  res.sendFile(filePath);
+  res.sendFile(path.join(__dirname, '../frontend/src/pages/ViewPage/ViewPage.html'));
 });
 
 app.get('/api/applicant_edit', (req, res) => {
-  const filePath = path.join(__dirname, '../frontend/src/pages/EditPage/EditPage.html');
-  console.log('Serving file Viewpage:', filePath);
-  res.sendFile(filePath);
+  res.sendFile(path.join(__dirname, '../frontend/src/pages/EditPage/EditPage.html'));
 });
 
 app.get('/api/organizer_view', (req, res) => {
-  const filePath = path.join(__dirname, '../frontend/src/pages/OrganizerPage/OrganizerPage.html');
-  console.log('Serving file OrganizerPage:', filePath);
-  res.sendFile(filePath);
+  res.sendFile(path.join(__dirname, '../frontend/src/pages/OrganizerPage/OrganizerPage.html'));
 });
 
 app.get('/api/organizer_manage', (req, res) => {
-  const filePath = path.join(__dirname, '../frontend/src/pages/OrganizerWorkflowPage/OrganizerWorkflowPage.html');
-  console.log('Serving file OrganizerWorkflow:', filePath);
-  res.sendFile(filePath);
+  res.sendFile(path.join(__dirname, '../frontend/src/pages/OrganizerWorkflowPage/OrganizerWorkflowPage.html'));
 });
 
 app.get('/api/organizer_final', (req, res) => {
-  const filePath = path.join(__dirname, '../frontend/src/pages/OrganizerApplicationViewPage/OrganizerApplicationViewPage.html');
-  console.log('Serving file OrganizerWorkflow:', filePath);
-  res.sendFile(filePath);
+  res.sendFile(path.join(__dirname, '../frontend/src/pages/OrganizerApplicationViewPage/OrganizerApplicationViewPage.html'));
 });
 
 app.get('/api/filter_application', (req, res) => {
-  const filePath = path.join(__dirname, '../frontend/src/pages/FilterPage/FilterPage.html');
-  console.log('Serving file OrganizerWorkflow:', filePath);
-  res.sendFile(filePath);
+  res.sendFile(path.join(__dirname, '../frontend/src/pages/FilterPage/FilterPage.html'));
 });
 
 app.use(cors());

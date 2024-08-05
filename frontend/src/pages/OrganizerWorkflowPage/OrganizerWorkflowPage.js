@@ -13,19 +13,19 @@ export function updateApplicationStatus(applicationId, action, organizerData) {
         },
         body: JSON.stringify({ action, ...organizerData })
     })
-    .then(response => {
-        if (!response.ok) {
-            return response.json().then(data => {
-                throw new Error(data.message || 'Error updating application');
-            });
-        }
-        return response.json();
-    })
-    .then(data => {
-        return data;
-    })
-    .catch(error => {
-        console.error(`Error during ${action}:`, error);
-        return Promise.reject(error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.message || 'Error updating application');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            return data;
+        })
+        .catch(error => {
+            console.error(`Error during ${action}:`, error);
+            return Promise.reject(error);
+        });
 }

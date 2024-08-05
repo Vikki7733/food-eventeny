@@ -1,6 +1,5 @@
 import { editApplicationComponent } from '../../components/EditApplicationComponent.js';
 
-
 document.addEventListener('DOMContentLoaded', () => {
     editApplicationComponent();
 });

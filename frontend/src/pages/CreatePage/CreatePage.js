@@ -1,10 +1,10 @@
 import { createApplicationComponent } from '../../components/CreateApplicationComponent.js';
 
-// Initialize the application component to setup form submission handling
-    createApplicationComponent();
+// Initialize the createApplicationComponent to setup form submission handling
+createApplicationComponent();
 
 export function createApplication(applicantName, description, applicantPhone, applicantEmail,
-     cuisineType, venueLocation,  items, requesterComments) {
+    cuisineType, venueLocation, items, requesterComments) {
     return fetch("/api/create_application/create", {
         method: "POST",
         headers: {

@@ -12,8 +12,6 @@ jest.mock('../src/dao/OrganizerApplicationWorkflowDAO.js', () => ({
   updateApplicationStatus: jest.fn(),
 }));
 
-
-
 describe('PUT /:id - Updating organizer application status', () => {
   it('should return 200 and success message when application is updated successfully', async () => {
     const mockResult = { affectedRows: 1 };

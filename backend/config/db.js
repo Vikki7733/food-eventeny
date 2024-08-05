@@ -1,16 +1,14 @@
 const mysql = require("mysql2");
-const { Client } = require('@elastic/elasticsearch'); // Import the Client from @elastic/elasticsearch
-
+require('dotenv').config();
 
 const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: 'westWORLD@123',
-  database: 'food_event_db',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 };
 
-const connection = mysql.createConnection(dbConfig);
-console.log("Connecting to the database",connection);    
+const connection = mysql.createConnection(dbConfig);   
 connection.connect((err) => {
   if (err) throw err;
   console.log("Connected to the database");

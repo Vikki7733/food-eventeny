@@ -1,7 +1,6 @@
 import { fetchApplications } from '../pages/ViewPage/ViewPage.js';
 import { filterApplicationComponent } from './FilterApplicationComponent.js';
 
-
 function renderOrganizerView(applications) {
 
     const banner = document.getElementById('banner');
@@ -24,7 +23,7 @@ function renderOrganizerView(applications) {
         parentCard.className = "card";
         parentCard.innerHTML = `
         <div class="card-body">
-        <span class="arrow">&gt;</span>
+        <span class="arrow">&#9654;</span>
             <h4 class="card-title">${cuisineType}</h4>
             <div class="application-status">
                 <span class="status-tag approved">Approved: ${countApplicationsByStatus(groupedApplications[cuisineType], 'Approved')}</span>
@@ -45,7 +44,7 @@ function renderOrganizerView(applications) {
             const arrow = parentCard.querySelector('.arrow');
             const isExpanded = childCards.style.display === 'block';
             childCards.style.display = isExpanded ? 'none' : 'block';
-            arrow.innerHTML = isExpanded ? '▸' : '▾';
+            arrow.innerHTML = isExpanded ? '&#9654;' : '&#9660;';
         });
     });
 }
@@ -79,7 +78,7 @@ function generateChildCards(applications) {
         } else if (app.status === 'Pending') {
             statusColor = '#9f8e9448';
         }
-        
+
         return `
             <div class="child-card" style="background-color: ${statusColor}">
                 <h5>Application Name: ${app.applicant_name}</h5>
@@ -101,7 +100,7 @@ export function organizerApplicationComponent() {
                     e.preventDefault();
                     const applicationId = link.getAttribute('data-id');
                     const application = data.find(app => app.application_id == applicationId);
-                    
+
                     if (application) {
                         if (application.status === 'Pending') {
                             navigateTo(`/api/organizer_manage?application_id=${applicationId}`);

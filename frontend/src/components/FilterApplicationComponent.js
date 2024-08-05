@@ -1,14 +1,19 @@
 import { renderApplications } from "../components/ViewApplicationComponent.js";
 import { fetchApplications } from "../pages/ViewPage/ViewPage.js";
 
+let isHtmlLoaded = false;
 export async function filterApplicationComponent(isOrganizerPage = false) {
-    await loadFilterPageContent(isOrganizerPage);
+    if (!isHtmlLoaded) {
+        await loadFilterPageContent(isOrganizerPage);
+        isHtmlLoaded = true;
+    }
+
     if (!isOrganizerPage) {
         await fetchAndPopulateSuggestions();
         setupFilterButton();
         setupClearButton();
         setupToggleButton();
-    } 
+    }
 }
 async function fetchAndPopulateSuggestions() {
     try {
@@ -61,6 +66,7 @@ function updateFilterInputsFromURL() {
 }
 
 async function loadFilterPageContent(isOrganizerPage) {
+    if (isHtmlLoaded) return;
     try {
         const response = await fetch('/pages/FilterPage/FilterPage.html');
         const htmlContent = await response.text();
@@ -73,7 +79,7 @@ async function loadFilterPageContent(isOrganizerPage) {
                     filtersDiv.innerHTML = '<p>Coming soon... NO filters</p>';
                 }
             } else {
-                updateFilterInputsFromURL(); 
+                updateFilterInputsFromURL();
             }
         }
     } catch (error) {
@@ -109,43 +115,41 @@ function setupFilterButton() {
     }
 }
 
-    function setupClearButton() {
-        const applicationsDiv = document.getElementById("applications");
-        const clearButton = document.getElementById('clearButton');
-        if (clearButton) {
-            clearButton.addEventListener('click', () => {
-                document.getElementById('filterApplicationIds').value = '';
-                document.getElementById('filterApplicantName').value = '';
-                document.getElementById('filterStatus').value = '';
-                document.getElementById('filterLocation').value = '';
-                document.getElementById('filterCuisineType').value = '';
-                document.getElementById("applications").innerHTML = '';
-                fetchApplications()
-            .then(data => {
-                if (applicationsDiv) {
-                    renderApplications(data, false, false);
-                }
-            })
-            .catch(error => console.error("Error fetching applications:", error));
-            });
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const filtersDiv = document.getElementById('filters');
-        if (!filtersDiv.classList.contains('hidden')) {
-            filtersDiv.classList.add('hidden');
-        }
-        setupToggleButton();
-    });
-    
-    function setupToggleButton() {
-        const toggleFiltersButton = document.getElementById('toggleFiltersButton');
-        const filtersDiv = document.getElementById('filters');
-        toggleFiltersButton.addEventListener('click', function() {
-            filtersDiv.classList.toggle('hidden');
-            toggleFiltersButton.innerHTML = filtersDiv.classList.contains('hidden') ? '&#9654; Show Filters' : '&#9660; Hide Filters';
+function setupClearButton() {
+    const applicationsDiv = document.getElementById("applications");
+    const clearButton = document.getElementById('clearButton');
+    if (clearButton) {
+        clearButton.addEventListener('click', () => {
+            document.getElementById('filterApplicationIds').value = '';
+            document.getElementById('filterApplicantName').value = '';
+            document.getElementById('filterStatus').value = '';
+            document.getElementById('filterLocation').value = '';
+            document.getElementById('filterCuisineType').value = '';
+            document.getElementById("applications").innerHTML = '';
+            fetchApplications()
+                .then(data => {
+                    if (applicationsDiv) {
+                        renderApplications(data, false, false);
+                    }
+                })
+                .catch(error => console.error("Error fetching applications:", error));
         });
     }
-    
+}
 
+document.addEventListener('DOMContentLoaded', function () {
+    const filtersDiv = document.getElementById('filters');
+    if (!filtersDiv.classList.contains('hidden')) {
+        filtersDiv.classList.add('hidden');
+    }
+    setupToggleButton();
+});
+
+function setupToggleButton() {
+    const toggleFiltersButton = document.getElementById('toggleFiltersButton');
+    const filtersDiv = document.getElementById('filters');
+    toggleFiltersButton.addEventListener('click', function () {
+        filtersDiv.classList.toggle('hidden');
+        toggleFiltersButton.innerHTML = filtersDiv.classList.contains('hidden') ? '&#9654; Show Filters' : '&#9660; Hide Filters';
+    });
+}

@@ -10,7 +10,7 @@ const createApplication = (applicationData, callback) => {
     applicant_phone,
     applicant_email,
     requester_comments,
-    items 
+    items
   } = applicationData;
 
   const query = `
@@ -33,10 +33,10 @@ const createApplication = (applicationData, callback) => {
       `;
 
       const itemValues = Object.keys(items).map(key => [
-          application_id,
-          key,
-          items[key].quantity,
-          parseFloat(items[key].price)
+        application_id,
+        key,
+        items[key].quantity,
+        parseFloat(items[key].price)
       ]);
 
       connection.query(itemQuery, [itemValues], (err, result) => {

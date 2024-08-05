@@ -10,7 +10,7 @@ function renderApplications(application) {
             <td>${item.quantity}</td>
         </tr>
     `).join('');
-return `
+    return `
          <div class="centered-container">
             <div class="card">
                 <h5 class="card-title">Application Name: ${application.applicant_name}</h5>

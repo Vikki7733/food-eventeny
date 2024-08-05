@@ -33,7 +33,7 @@ describe('GET /list - Retrieving applications list', () => {
   it('should return 200 and a list of applications', async () => {
     const mockApplications = [
       { application_id: 'fev296868', name: 'Food Truck' },
-      { application_id: 'fev625328', name: 'FoodOnWheels'}
+      { application_id: 'fev625328', name: 'FoodOnWheels' }
     ];
     viewApplication.mockImplementation((callback) => callback(null, mockApplications));
 

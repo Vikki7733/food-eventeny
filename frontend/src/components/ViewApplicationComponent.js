@@ -32,7 +32,7 @@ export function renderApplications(applications, showEditButtons, isSingleView) 
 
 function generateCardHTML(application, showEditButtons) {
     const itemsHTML = (application.items || []).map(item => `
-<tr>
+        <tr>
             <td>${item.item_name}</td>
             <td>${item.price}</td>
             <td>${item.quantity}</td>
@@ -147,18 +147,18 @@ export async function viewApplicationComponent() {
 
     if (filterButton) {
 
-    filterButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    filterApplicationComponent(false, (data) => { 
-        if (data && data.results && data.results.length > 0) {
-            if (applicationsDiv) applicationsDiv.innerHTML = '';
-            renderApplications(data.results, false);
-        } else {
-            console.error('No results found');
-            if (applicationsDiv) applicationsDiv.innerHTML = '<p>No results found.</p>';
-        }
-    });
-    });
+        filterButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            filterApplicationComponent(false, (data) => {
+                if (data && data.results && data.results.length > 0) {
+                    if (applicationsDiv) applicationsDiv.innerHTML = '';
+                    renderApplications(data.results, false);
+                } else {
+                    console.error('No results found');
+                    if (applicationsDiv) applicationsDiv.innerHTML = '<p>No results found.</p>';
+                }
+            });
+        });
     }
 
     if (applicationId) {
@@ -169,7 +169,7 @@ export async function viewApplicationComponent() {
             .then(data => {
                 if (applicationsDiv) {
                     renderApplications([data], true, true);
-               }
+                }
             })
             .catch(error => console.error("Error fetching application details:", error));
     } else {

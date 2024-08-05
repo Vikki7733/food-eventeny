@@ -8,14 +8,14 @@ app.use(express.json());
 app.use('/', deleteApplicationRouter);
 
 jest.mock('../src/dao/DeleteApplicationDAO.js', () => ({
-    deleteApplication: jest.fn().mockImplementation((id, callback) => {
-      if (id === '123') {
-        callback(null, true);
-      } else {
-        callback(new Error('Failed to delete'), null); 
-      }
-    }),
-  }));
+  deleteApplication: jest.fn().mockImplementation((id, callback) => {
+    if (id === '123') {
+      callback(null, true);
+    } else {
+      callback(new Error('Failed to delete'), null);
+    }
+  }),
+}));
 
 describe('DELETE /:id', () => {
   it('should delete an application successfully', async () => {

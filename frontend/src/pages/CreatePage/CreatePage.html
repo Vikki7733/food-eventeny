@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,25 @@
     <link rel="stylesheet" href="/pages/CreatePage/CreatePage.css">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
 </head>
+
 <body>
     <button id="backButton" class="back-button">&#x2190;</button>
     <h1>Submit Application</h1>
     <form id="applicationForm" method="post">
-        <label for="applicantName">Applicant Name:</label>
+        <label for="applicantName" class="required">Applicant Name:</label>
         <input type="text" id="applicantName" required>
 
         <label for="description">Description:</label>
         <textarea id="description"></textarea>
 
-        <label for="applicantPhone">Phone:</label>
-        <input type="text" id="applicantPhone" required>
+        <label for="applicantPhone" class="required">Phone:</label><span id="phoneWarning" class="warning"></span>
+        <input type="number" id="applicantPhone" required>
 
-        <label for="applicantEmail">Email:</label>
+
+        <label for="applicantEmail" class="required">Email:</label> <span id="emailWarning" class="warning"></span>
         <input type="email" id="applicantEmail" required>
 
-        <label for="cuisineType">Cuisine Type:</label>
+        <label for="cuisineType" class="required">Cuisine Type:</label>
         <select name="cuisineType" id="cuisineType" required>
             <option value="American">American</option>
             <option value="Chinese">Chinese</option>
@@ -35,37 +38,38 @@
             <option value="Thai">Thai</option>
         </select>
 
-        <label for="venueLocation">Venue Location</label>
+        <label for="venueLocation" class="required">Venue Location</label>
         <input type="text" id="venueLocation" required>
         <label for="requesterComments">Requester Comments</label>
         <input type="text" id="requesterComments" placeholder="Please enter for any special accommodations">
+        
         <h2>Additional Items </h2>
         <div class="item-row">
             <label for="chairs">Chairs:<span class="price">$5 each</span></label>
             <input type="number" id="chairs" class="item-quantity" min="0" value="0">
-            
+
         </div>
         <div class="item-row">
             <label for="tables">Tables:<span class="price">$7 each</span></label>
             <input type="number" id="tables" class="item-quantity" min="0" value="0">
-            
+
         </div>
         <div class="item-row">
             <label for="souvenirs">Souvenirs:<span class="price">$9 each</span></label>
             <input type="number" id="souvenirs" class="item-quantity" min="0" value="0">
-           
+
         </div>
         <div class="item-row">
-            <label for="drinks">Drinks:</label> <span class="price">$8 each</span></label>
+            <label for="drinks">Drinks: <span class="price">$8 each</span></label>
             <input type="number" id="drinks" class="item-quantity" min="0" value="0">
-           
+
         </div>
         <div id="totalCost">Total Cost: $0.00</div>
 
-
-        <button type="submit">Submit</button>
+        <button type="submit" id="submitButton" disabled>Submit</button>
     </form>
 
     <script type="module" src="/pages/CreatePage/CreatePage.js"></script>
 </body>
+
 </html>

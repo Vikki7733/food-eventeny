@@ -25,20 +25,20 @@ const organizerViewApplication = (applicationId, callback) => {
         organizer_table o ON a.application_id = o.application_id
     WHERE a.application_id = ?`;
 
-    connection.query(fetchAllJoinedDataQuery,[applicationId], (err, results) => {
-    if (err) {
-      console.error('Error executing query:', err);
-      if (typeof callback === 'function') {
-        callback(err, null);
-      } else {
-        throw new TypeError('Callback is not a function');
-      }
-      return;
-    }
-    if (!results.length) {
-        return callback(null, null); // No results found
-    }
-    const applicationData = results[0];
+    connection.query(fetchAllJoinedDataQuery, [applicationId], (err, results) => {
+        if (err) {
+            console.error('Error executing query:', err);
+            if (typeof callback === 'function') {
+                callback(err, null);
+            } else {
+                throw new TypeError('Callback is not a function');
+            }
+            return;
+        }
+        if (!results.length) {
+            return callback(null, null); // No results found
+        }
+        const applicationData = results[0];
         // Fetch items for the application
         const fetchItemsQuery = `
         SELECT 
